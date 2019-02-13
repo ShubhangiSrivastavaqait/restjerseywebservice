@@ -31,13 +31,11 @@ public class CommentService {
 		System.out.println(username);
 		System.out.println(comments);
 		try {
-		String[] data= {username,comments};
-		DbConnection dbConnect=new DbConnection();
-		CommentHandler commentHandle=new CommentHandler();
+		String[] datab = {username,comments};
+		DbConnection dbConnect = new DbConnection();
+		CommentHandler commentHandle = new CommentHandler();
 		flag= commentHandle.InsercommentToDatabase(dbConnect.getConnection(), data, username,comments);
 		System.out.println(flag);
-		
-		
 
 		} catch(Exception e) { }
 		return "success";
@@ -50,12 +48,12 @@ public class CommentService {
 	 @Produces(MediaType.APPLICATION_JSON)
 	  public String getcomments(@QueryParam("name") String username) {
 	   Gson gsonBuilder = new GsonBuilder().create();
-		List<String> flag=new ArrayList<String>();
-		String jsonFromJavaArrayList=null;
+		List<String> flag = new ArrayList<String>();
+		String jsonFromJavaArrayList = null;
 		try {
-		String[] data= {username};
-		DbConnection dbConnect=new DbConnection();
-		CommentHandler commentHandle=new CommentHandler();
+		String[] data = {username};
+		DbConnection dbConnect = new DbConnection();
+		CommentHandler commentHandle = new CommentHandler();
 		flag= commentHandle.RetrieveComment(dbConnect.getConnection(), data, username);
 		jsonFromJavaArrayList = gsonBuilder.toJson(flag);
 //		System.out.println(jsonFromJavaArrayList);
