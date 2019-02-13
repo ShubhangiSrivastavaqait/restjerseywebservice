@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <link rel="Stylesheet" href="SignUp.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Profile Page</h1>
+<body>
+<h1> Enter comments </h1>
+
+<div class="row">
+<div class="col-sm-12 col-lg-7 col-md-7">
+<form action= "rest/CommentService/Submitcomments" method="post">
+<div class="col-sm-10"><input type="text" name="name" placeholder="Enter Full Name" ></div><br>
+
+
+
+<textarea rows="4" cols="50" name="comments" placeholder="Comment here">
+</textarea>
+
+
+<div>
+<input class="button" type="Submit" value="Submitcomments"><br>
+</div>
+<br/>
+
+<div>
+<a href="http://localhost:8080/RestJersey/Allcomments.jsp">Show all comments</a>
+</div>
+<div>
+<a href="http://localhost:8080/RestJersey/rest/CommentService/getcomments">Get Comments</a>
+</div>
+<br/>
+<br/>
+</form>
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>
