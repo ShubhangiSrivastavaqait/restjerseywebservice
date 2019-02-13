@@ -7,8 +7,8 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-</head>
+<title>Web service</title>
+ </head>
 <body>
 <h1>Profile Page</h1>
 <body>
@@ -19,15 +19,28 @@
 <form action= "rest/CommentService/Submitcomments" method="post">
 <div class="col-sm-10"><input type="text" name="name" placeholder="Enter Full Name" ></div><br>
 
+
+
 <textarea rows="4" cols="50" name="comments" placeholder="Comment here">
 </textarea>
 
-<div>
+
 <input class="button" type="Submit" value="Submitcomments">
 <br>
-<div class="col-sm-10"><input type="text" name="name" placeholder="Type username" ></div><br>
+</form>
+</div>
+</div>
 
-<a href="http://localhost:8080/RestJersey/rest/CommentService/getcomments" class="button">getcomments</a>
+
+
+<div>
+<form action= "rest/CommentService/getcomments" method="get">
+<div class="col-sm-10"><input type="text" name="cmnt" placeholder="Type username" ></div><br>
+<div>
+<input class="button" type="Submit" value="Viewcomments">
+
+</div>
+</form>
 </div>
 <br/>
 
@@ -39,10 +52,13 @@
 </div>
 <br/>
 <br/>
-</form>
+
 </div>
 
 
 </div>
+
+
 </body>
+
 </html>
