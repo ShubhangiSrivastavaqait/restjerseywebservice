@@ -15,7 +15,7 @@ System.out.println("the-login" +username);
 PreparedStatement ps = dbConnect.prepareStatement("select password from LoginCredentials where uname='"+username+"';");
   
  System.out.println("before ex");
- ResultSet rs=ps.executeQuery();
+ ResultSet rs = ps.executeQuery();
 			
  System.out.println("after ex");
  rs.next();
