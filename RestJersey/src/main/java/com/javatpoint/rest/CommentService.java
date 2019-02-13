@@ -43,6 +43,7 @@ public class CommentService {
 	 @GET
 	 @Path("/getcomments")
 	 @Produces(MediaType.APPLICATION_JSON)
+	
 	  public String getcomments(@QueryParam("name") String username) {
 	   Gson gsonBuilder = new GsonBuilder().create();
 		List<String> flag = new ArrayList<String>();
