@@ -39,7 +39,10 @@ public class CommentService {
 		
 		
 
-		} catch(Exception e) { }
+		} 
+	        catch(Exception e) { 
+		System.out.println("Comment Service Error found : "+e.getMessage());
+		}
 		return "success";
 		
 		}
