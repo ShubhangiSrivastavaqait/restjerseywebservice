@@ -7,20 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentHandler {
-	public String InsercommentToDatabase(Connection dbConnect, String[] data, String username , String comments) throws Exception {
-		String comm;
+public String InsercommentToDatabase(Connection dbConnect, String[] data, String username , String comments) throws Exception {
+String comm;
 
 try {
-  System.out.println(data[0]);
-  PreparedStatement ps = dbConnect.prepareStatement("INSERT INTO usercomments values ( '"+data[0]+"', '"+data[1]+"');");
+ System.out.println(data[0]);
+PreparedStatement ps = dbConnect.prepareStatement("INSERT INTO usercomments values ( '"+data[0]+"', '"+data[1]+"');");
 		
-   ps.executeUpdate();
+  ps.executeUpdate();
 			 
-	PreparedStatement ds=dbConnect.prepareStatement("select comments from usercomments where username='"+username+"';"); 
-	ResultSet rs=ds.executeQuery();
+PreparedStatement ds=dbConnect.prepareStatement("select comments from usercomments where username='"+username+"';"); 
+ResultSet rs=ds.executeQuery();
 		
-	rs.next();
-	comm = rs.getString(1);
+rs.next();
+comm = rs.getString(1);
 	
 	} 
 catch (Exception e) {
@@ -35,15 +35,15 @@ catch (Exception e) {
 }
 
 	
- public List<String> RetrieveComment(Connection dbConnect, String[] data, String username) throws Exception {
+public List<String> RetrieveComment(Connection dbConnect, String[] data, String username) throws Exception {
 		
-       List<String> usercommentlist = new ArrayList<String>();
-	try {
+List<String> usercommentlist = new ArrayList<String>();
+try {
 		
-	System.out.println(data[0]);
+System.out.println(data[0]);
 
-        PreparedStatement ds = dbConnect.prepareStatement("select comments from usercomments where username='"+username+"';"); 
-	ResultSet rs = ds.executeQuery();
+PreparedStatement ds = dbConnect.prepareStatement("select comments from usercomments where username='"+username+"';"); 
+ResultSet rs = ds.executeQuery();
 
 	while(rs.next()) {
 
@@ -54,15 +54,15 @@ catch (Exception e) {
 			
 catch (Exception e) {
 	
-	System.out.println("Handler Error found : "+e.getMessage());
-	throw e;
+ System.out.println("Handler Error found : "+e.getMessage());
+ throw e;
 
   }
  
-	 return usercommentlist;
-
+ return usercommentlist;
 		
 }
+	
 }
 
 
