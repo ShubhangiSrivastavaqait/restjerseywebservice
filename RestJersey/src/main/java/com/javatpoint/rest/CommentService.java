@@ -48,23 +48,24 @@ public class CommentService {
 		}
 	
 	
+	
 	 @GET
 	 @Path("/getcomments")
 	 @Produces(MediaType.APPLICATION_JSON)
 	 public String getcomments(@QueryParam("cmnt") String username) {
-	  Gson gsonBuilder = new GsonBuilder().create();
-	  List<String> flag = new ArrayList<String>();
-		String jsonFromJavaArrayList = null;
+	 Gson gsonBuilder = new GsonBuilder().create();
+	 List <Map> flag = new ArrayList();
+	  String jsonFromJavaArrayList = null;
 		try {
 			System.out.println(username);
 
 		String[] data = {username};
 		
-		DbConnection dbConnect=new DbConnection();
-		CommentHandler commentHandle=new CommentHandler();
-		flag = commentHandle.RetrieveComment(dbConnect.getConnection(), data, username);
+		DbConnection dbConnect = new DbConnection();
+		CommentHandler commentHandle = new CommentHandler();
+		flag= commentHandle.RetrieveComment(dbConnect.getConnection(), data, username);
 		jsonFromJavaArrayList = gsonBuilder.toJson(flag);
-		
+
 		} 
 		
 		catch(Exception e) {
