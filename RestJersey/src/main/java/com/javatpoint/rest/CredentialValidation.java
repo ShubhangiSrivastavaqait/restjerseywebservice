@@ -1,6 +1,5 @@
 package com.javatpoint.rest;
 import java.net.URISyntaxException;
-
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
