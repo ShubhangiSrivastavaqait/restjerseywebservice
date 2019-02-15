@@ -35,34 +35,37 @@ catch (Exception e) {
 }
 
 	
-public List<String> RetrieveComment(Connection dbConnect, String[] data, String username) throws Exception {
-		
-List<String> usercommentlist = new ArrayList<String>();
+public List<Map> RetrieveComment(Connection dbConnect, String[] data, String username) throws Exception {
+
+List <Map> obj = new ArrayList();
+  
 try {
+
+			 
+  PreparedStatement ds=dbConnect.prepareStatement("select username,comments from usercomments "
+		+ "where username='"+username+"';"); 
+     ResultSet rs=ds.executeQuery();
+      System.out.println("hello");
+
+		while(rs.next()) {
 		
-System.out.println(data[0]);
-
-PreparedStatement ds = dbConnect.prepareStatement("select comments from usercomments where username='"+username+"';"); 
-ResultSet rs = ds.executeQuery();
-
-	while(rs.next()) {
-
-	usercommentlist.add(rs.getString("comments"));
-			
-	}
-}
-			
-catch (Exception e) {
-	
- System.out.println("Handler Error found : "+e.getMessage());
- throw e;
-
-  }
- 
- return usercommentlist;
+		Map mMap = new HashMap();
 		
-}
-	
+		mMap.put(rs.getString("username"), rs.getString("comments"));
+		
+		obj.add(mMap);	
+			
+		}
+		}
+			
+			catch (Exception e) {
+				System.out.println("Handler Error found : "+e.getMessage());
+				throw e;
+			}
+       
+		return obj;
+
+		
 }
 
 
