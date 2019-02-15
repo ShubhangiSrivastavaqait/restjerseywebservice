@@ -1,5 +1,4 @@
 package com.javatpoint.rest;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -11,7 +10,7 @@ import Dao.*;
 @Path("/SignUpService")
 public class SignUpService {
 	
-@POST
+ @POST
  @Path("/SignUp")
  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
  public String login(@FormParam("uname") String username,
@@ -19,10 +18,10 @@ public class SignUpService {
  @FormParam("gender") String gender, @FormParam("mob") int mob, @FormParam("lang") String lang) {
 	boolean flag=false;
 	try {
-	String[] data= {username,name, address,gender, lang};
-	DbConnection dbConnect=new DbConnection();
-	SignUpHandler signUpHandle=new SignUpHandler();
-	flag=signUpHandle.InserDataToDatabase(dbConnect.getConnection(), data, mob , password);
+	String[] data = {username,name, address,gender, lang};
+	DbConnection dbConnect = new DbConnection();
+	SignUpHandler signUpHandle = new SignUpHandler();
+	flag = signUpHandle.InserDataToDatabase(dbConnect.getConnection(), data, mob , password);
 	System.out.println(flag);
 
 	} catch(Exception e) {
