@@ -75,4 +75,31 @@ public class CommentService {
 	
 	}
 	
+	 @GET
+	 @Path("/getusercomm")
+	 @Produces(MediaType.APPLICATION_JSON)
+	 public String getusercomm() {
+	  Gson gsonBuilder = new GsonBuilder().create();
+	  
+	  List <Map> flag1 = new ArrayList();
+	  String jsonFromJavaArrayList = null;
+		try {
+			
+		DbConnection dbConnect = new DbConnection();
+		CommentHandler commentHandle = new CommentHandler();
+		flag1 = commentHandle.RetrieveUserComment(dbConnect.getConnection());
+		jsonFromJavaArrayList = gsonBuilder.toJson(flag1);
+
+		} 
+		
+		catch(Exception e) {
+			
+		System.out.println("Comment Service Error found : "+e.getMessage());
+			
+		}
+	
+		return jsonFromJavaArrayList;
+	
+	}
+	
 }
