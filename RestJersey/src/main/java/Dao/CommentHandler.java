@@ -42,9 +42,9 @@ List <Map> obj = new ArrayList();
 try {
 
 			 
-  PreparedStatement ds=dbConnect.prepareStatement("select username,comments from usercomments "
+  PreparedStatement ds = dbConnect.prepareStatement("select username,comments from usercomments "
 		+ "where username='"+username+"';"); 
-     ResultSet rs=ds.executeQuery();
+     ResultSet rs = ds.executeQuery();
       System.out.println("hello");
 
 		while(rs.next()) {
@@ -64,8 +64,41 @@ try {
 			}
        
 		return obj;
+	
+	
 
 		
+}
+	 
+ public List<Map> RetrieveUserComment(Connection dbConnect) throws Exception {
+	 
+	
+	List <Map> obj1 = new ArrayList();
+      try {
+						 
+        PreparedStatement ds=dbConnect.prepareStatement("select * from usercomments"); 
+       ResultSet rs = ds.executeQuery();
+	 	while(rs.next()) {
+		
+		Map mMap = new HashMap();
+		
+		mMap.put(rs.getString("username"), rs.getString("comments"));
+		
+		obj1.add(mMap);
+				
+			
+			}
+		}
+			
+			catch (Exception e) {
+				System.out.println("Handler Error found : "+e.getMessage());
+				throw e;
+			}
+	
+		return obj1;
+
+		
+}
 }
 
 
