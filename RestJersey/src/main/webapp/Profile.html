@@ -3,62 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- <link rel="Stylesheet" href="SignUp.css">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>Web service</title>
- </head>
+<link rel="Stylesheet" href="SignUp.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Home</title>
+<input class="button" align="left"  type="Submit" value="Logout" onclick="location.href='AccountLogin.html'">
+</head>
 <body>
-<h1>Profile Page</h1>
+<h1 align="center">HomePage</h1>
+
 <body>
-<h1> Enter comments </h1>
+<h2> Enter username and comments </h2>
 
 <div class="row">
 <div class="col-sm-12 col-lg-7 col-md-7">
 <form action= "rest/CommentService/Submitcomments" method="post">
-<div class="col-sm-10"><input type="text" name="name" placeholder="Enter Full Name" ></div><br>
 
-
-
+<div class="col-sm-10"><input type="text" name="name" placeholder="Full Name" ></div><br>
 <textarea rows="4" cols="50" name="comments" placeholder="Comment here">
 </textarea>
 
 
-<input class="button" type="Submit" value="Submitcomments">
+<input class="button" type="Submit" value="Submit">
 <br>
 </form>
 </div>
 </div>
 
-
-
 <div>
+
 <form action= "rest/CommentService/getcomments" method="get">
+
+<h2>Type username to view usercomments in json format</h2>
 <div class="col-sm-10"><input type="text" name="cmnt" placeholder="Type username" ></div><br>
-<div>
 <input class="button" type="Submit" value="Viewcomments">
 
-</div>
 </form>
 </div>
 <br/>
-
+<h2>View users and comments in jsp format</h2>
 <div>
 <a href="http://localhost:8080/RestJersey/Allcomments.jsp">Show all comments</a>
 </div>
-<div>
 
-</div>
+ <form action= "rest/CommentService/getusercomm" method="get"> 
+ 
+ <h2>View all user comments in json format</h2>
+ <input class="button" type="Submit" value="ViewAllcomments"> 
+ 
+ </form> 
+
 <br/>
 <br/>
-
-</div>
-
-
-</div>
-
 
 </body>
-
 </html>
